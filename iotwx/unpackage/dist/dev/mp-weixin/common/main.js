@@ -18,6 +18,32 @@ var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 12));f
 _vue.default.use(_uviewUi.default);
 uni.$u.config.unit = 'rpx';
 
+_vue.default.prototype.$reqPost = function (_ref) {var url = _ref.url,body = _ref.body,_ref$rsv = _ref.rsv,rsv = _ref$rsv === void 0 ? function () {} : _ref$rsv,_ref$rej = _ref.rej,rej = _ref$rej === void 0 ? function () {} : _ref$rej;
+  uni.request({
+    url: url,
+    method: "POST",
+    header: {
+      'Content-Type': 'application/json;charset=utf-8' },
+
+    data: body,
+    success: function success(res) {
+      rsv(res);
+    },
+    fail: function fail(err) {
+      rej(err);
+    } });
+
+};
+
+
+
+
+
+
+var baseUrl = "http://localhost:8082";
+
+_vue.default.prototype.$baseUrl = baseUrl;
+
 var app = new _vue.default(_objectSpread({},
 _App.default));
 

@@ -7,11 +7,22 @@
 				"navigationStyle": "custom"
 			}
 		}
-	],
+	  ,{
+          "path" : "pages/main/main",
+          "style" : {
+            "navigationBarTitleText": "CFun-IoT",
+            "enablePullDownRefresh": false
+          }
+          
+      }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"easycom": {
+		"autoscan": true
 	}
 }

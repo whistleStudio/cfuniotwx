@@ -130,7 +130,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
 //
 //
 //
@@ -152,13 +155,43 @@ var _default =
 {
   data: function data() {
     return {
-      title: 'Hello' };
+      info: {
+        mail: "",
+        pwd: "" } };
+
 
   },
+  computed: {
+    logOk: function logOk() {
+      return this.info.mail && this.info.pwd;
+    } },
+
   onLoad: function onLoad() {
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    reqLog: function reqLog() {
+      this.$reqPost({
+        url: "".concat(this.$baseUrl, "/login"),
+        body: this.info,
+        rsv: function rsv(res) {
+          if (!res.data.err) {
+            uni.navigateTo({
+              url: "/pages/main/main",
+              success: function success() {console.log("s");},
+              fail: function fail() {console.log("f");} });
+
+          } else uni.showToast({ title: "邮箱或密码错误", icon: "error" });
+        },
+        rej: function rej(err) {
+          uni.showToast({
+            title: "数据访问错误",
+            icon: "error" });
+
+        } });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

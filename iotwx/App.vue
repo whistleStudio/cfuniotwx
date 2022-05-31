@@ -14,4 +14,9 @@
 
 <style lang="scss">
 	/*每个页面公共css */
+	@import "@/static/css/font/iconfont.css";
+	ul {
+		list-style: none;
+		padding-left: 0;
+	}
 </style>

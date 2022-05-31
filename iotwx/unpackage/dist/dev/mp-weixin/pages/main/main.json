@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "CFun-IoT",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "cf-tabbar": "/components/cf-tabbar/cf-tabbar"
+  }
+}

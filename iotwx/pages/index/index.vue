@@ -5,13 +5,16 @@
 			<text>创趣物联小程序</text>
 			<view class="uni-form-item uni-column mgt-50">
 				<view class="title">用户邮箱</view>
-				<input class="uni-input mgt-20" focus placeholder="name@example.com" placeholder-class="text-plh"/>
+				<input v-model="info.mail"
+				class="uni-input mgt-20" focus placeholder="name@example.com" placeholder-class="text-plh"/>
 			</view>	
 			<view class="uni-form-item uni-column mgt-20">
 				<view class="title">密码</view>
-				<input class="uni-input mgt-20" password type="text" placeholder-class="text-plh"/>
+				<input v-model="info.pwd"
+				class="uni-input mgt-20" password type="text" placeholder-class="text-plh"/>
 			</view>
-			<button  class="mgt-50" hover-class="btn-hover">登录</button>
+			<button :disabled="!logOk" @click="reqLog"
+			class="mgt-50" hover-class="btn-hover">登录</button>
 		</view>
 	</view>
 </template>
@@ -20,14 +23,42 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				info: {
+					mail: "",
+					pwd: ""
+				}
+			}
+		},
+		computed: {
+			logOk: function () {
+				return this.info.mail&&this.info.pwd
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-
+			reqLog () {
+				this.$reqPost({
+					url: `${this.$baseUrl}/login`,
+					body: this.info,
+					rsv (res) {
+						if (!res.data.err) {
+							uni.navigateTo({
+								url: "/pages/main/main",
+								success(){console.log("s")},
+								fail(){console.log("f")}
+							})
+						} else uni.showToast({title:"邮箱或密码错误",icon:"error"})
+					},
+					rej (err) {
+						uni.showToast({
+							title: "数据访问错误",
+							icon: "error"
+						})
+					}
+				})
+			}
 		}
 	}
 </script>

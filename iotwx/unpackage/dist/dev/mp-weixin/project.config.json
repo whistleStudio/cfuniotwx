@@ -30,12 +30,11 @@
       "outputPath": ""
     },
     "disableUseStrict": false,
-    "useCompilerPlugins": false,
-    "minifyWXML": true
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.4",
-  "appid": "touristappid",
+  "appid": "wx28a0fcbc694304dd",
   "projectname": "iotwx",
   "condition": {},
   "editorSetting": {
