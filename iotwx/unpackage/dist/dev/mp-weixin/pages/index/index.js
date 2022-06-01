@@ -171,23 +171,23 @@ var _default =
   },
   methods: {
     reqLog: function reqLog() {
+      var th = this;
       this.$reqPost({
         url: "".concat(this.$baseUrl, "/login"),
         body: this.info,
-        rsv: function rsv(res) {
-          if (!res.data.err) {
-            uni.navigateTo({
-              url: "/pages/main/main",
-              success: function success() {console.log("s");},
-              fail: function fail() {console.log("f");} });
+        rsv: function rsv(data) {
+          console.log(data);
+          if (!data.err) {
+            th.$store.commit("changeVal", { k: "token", v: data.tkid });
+            setTimeout(function () {
+              uni.navigateTo({
+                url: "/pages/main/main",
+                success: function success() {
+                  // sessionStorage.setItem("token", data.tkid)
+                } });
 
+            }, 200);
           } else uni.showToast({ title: "邮箱或密码错误", icon: "error" });
-        },
-        rej: function rej(err) {
-          uni.showToast({
-            title: "数据访问错误",
-            icon: "error" });
-
         } });
 
     } } };exports.default = _default;

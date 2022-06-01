@@ -1,0 +1,1 @@
+<view><cf-tabbar vue-id="1b480384-1" actTabIdx="{{1}}" bind:__l="__l"></cf-tabbar></view>

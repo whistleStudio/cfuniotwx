@@ -9,4 +9,11 @@
 - iconfont.css文件里关联文件引用需要绝对路径	
 - page.json使用easycom，省去注册，声明
 - main页面tabbar样式搭建
+### [06011725]
+- 注意回调里的this
+- 关于登录后的token
+  小程序里没有cookie,sessionStorage,后端给cookie没用
+  变通方法: 后端把生成的token作为正常数据返回，
+	小程序里把它存在vuex状态机里，需要令牌的请求在请求头headers里加相应字段，后端再增加对应字段的判断;
+	另外,w3c设定了headers里的保留字段，像cookie就不能用，可以用authorization，当然避开保留就可以了
 	

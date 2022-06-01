@@ -16,16 +16,20 @@
 		data() {
 			return {
 				tabInfo: [
-					{text:"设备信息", icon:"icon-shebei"},
-					{text:"智能控制", icon:"icon-xitongkongzhi"},
+					{text:"设备信息", icon:"icon-shebei", link: "/pages/main/main"},
+					{text:"智能控制", icon:"icon-xitongkongzhi", link: "/pages/control/control"},
 					{text:"数据监控", icon:"icon-shuju"}
 				],
-				actTabIdx: 0,
 			};
+		},
+		props: {
+			actTabIdx: Number
 		},
 		methods: {
 			changeTab (i) {
-				this.actTabIdx = i
+				uni.redirectTo({
+					url: this.tabInfo[i].link
+				})
 			}
 		}
 	}
