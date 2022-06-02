@@ -26,6 +26,10 @@
 /* 文章场景相关 */
 /* 颜色 */
 /* 字体 */
+/* 全局 */
+page {
+  --mainColor: $mainColor;
+}
 /* 布局 */
 .flex-center {
   display: flex;

@@ -1,12 +1,13 @@
 <template>
 	<view>
 		<view class="profile flex-center">
-			<view ></view>
-			<text>{{userInfo.nm}}</text>
+			<!-- <view style="background-image: url('/static/img/user/av1.jpg');"></view> -->
+			<view :style="{backgroundImage: `url(/static/img/user/av${userInfo.avatar}.jpg)`}"></view>
+			<text>{{userInfo.name}}</text>
 		</view>
 		<view class="info">
 			<ul class="flex-center">
-				<li v-for="(v, i) in devInfo" :key="i" @click="testClick">
+				<li v-for="(v, i) in devInfo" :key="i" @click="liClick(i)">
 					<view class="left">
 						<text :class="v.icon" class="iconfont"></text>
 					</view>
@@ -22,6 +23,8 @@
 </template>
 
 <script>
+	import throttle from "../../utils/throttle.js"
+	
 	export default {
 		data() {
 			return {
@@ -33,28 +36,81 @@
 				],
 				userInfo: {
 					avatar: 0,
-					nm: "loading"
-				}
+					name: "loading",
+					code: "",
+				},
+				devList: [],
+				isShowCode: false,
 			}
 		},
+		computed: {
+		},
 		methods: {
-			testClick () {
-				this.devInfo[0].count = 1
+			thLiClick: throttle.clickLimit(function(){
+				this.resetCode()
+			},{limit:1000}),
+			liClick (i) {
+				switch (i) {
+					case 2:
+						this.isShowCode = !this.isShowCode
+						this.devInfo[i].des = this.isShowCode ? this.userInfo.code : "连接密钥"
+						break
+					case 3:
+						this.thLiClick()
+						break
+				}
 			},
-			// getUserInfoRsv (data) {
-			// 	console.log(data)
-			// 	this.userInfo.name = data.name
-			// 	this.userInfo.avatar = data.avatar
-			// }
+			/* 计算在线设备数量 */
+			olCount () {
+				let count = 0
+				this.devList.forEach(e => {
+					if (e.state) count++
+				})
+				return count
+			},
+			/* 重置密钥 */
+			resetCode () {
+				/* 1-重置 */
+				this.$reqGet({
+					url:`${this.$baseUrl}/user/getCode`,
+					query: {i: 1},
+					rsv: (data) => {
+						console.log("reset--",data)
+						if (!data.err) {
+							this.userInfo.code = data.code
+							this.devInfo[2].des = data.code
+						}
+						else uni.showToast({title: "重置失败", icon: "error"})
+					}
+				})	
+			}
 		},
 		onLoad () {
+			// console.log("clicklimit-", typeof throttle.clickLimit(()=>{}))
+			/* 获取用户基本信息 */
 			this.$reqGet({
 				url:`${this.$baseUrl}/user/getUserInfo`,
 				rsv: (data) => {
-					console.log(this,data)
-					this.userInfo.nm = data.name
-					console.log(this.userInfo.nm)
-					this.userInfo.avatar = data.avatar					
+					console.log(data)
+					this.userInfo.name = data.name
+					this.userInfo.avatar = data.avatar
+				}
+			}),
+			/* 获取设备列表 */
+			this.$reqGet({
+				url:`${this.$baseUrl}/dev/getDevList`,
+				rsv: (data) => {
+					this.devList = data.data
+					this.devInfo[0].count = this.devList.length
+					this.devInfo[1].count = this.olCount()
+				}
+			}),
+			/* 0-获取密钥 */
+			this.$reqGet({
+				url:`${this.$baseUrl}/user/getCode`,
+				query: {i: 0},
+				rsv: (data) => {
+					this.userInfo.code = data.code
 				}
 			})
 		},
@@ -73,7 +129,7 @@
 			box-sizing: border-box;
 			border: 1px solid gainsboro;
 			border-radius: 50%;
-			background: center/cover no-repeat;
+			background: url("@/static/img/user/av0.jpg") center/cover no-repeat;
 		}
 		text {
 			margin-top: 20rpx;

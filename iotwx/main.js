@@ -4,8 +4,8 @@ import Vue from 'vue'
 Vue.config.productionTip = false
 App.mpType = 'app'
 Vue.prototype.$store = store
-import uView from "uview-ui"
-Vue.use(uView)
+import uView from 'uview-ui';
+Vue.use(uView);
 uni.$u.config.unit = 'rpx'
 
 // #ifdef H5

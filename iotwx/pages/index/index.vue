@@ -93,7 +93,7 @@
 			input {
 				border: 1px solid rgb(180,180,180);
 				border-radius: 5px;
-				text-indent: 10rpx;
+				padding-left: 20rpx;
 				font: 40rpx/50rpx;
 			}
 			button {

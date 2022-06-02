@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/cf-tabbar/cf-tabbar":1};
+/******/ 		var cssChunks = {"components/cf-tabbar/cf-tabbar":1,"node-modules/uview-ui/components/u-popup/u-popup":1,"node-modules/uview-ui/components/u-icon/u-icon":1,"node-modules/uview-ui/components/u-overlay/u-overlay":1,"node-modules/uview-ui/components/u-safe-bottom/u-safe-bottom":1,"node-modules/uview-ui/components/u-status-bar/u-status-bar":1,"node-modules/uview-ui/components/u-transition/u-transition":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/cf-tabbar/cf-tabbar":"components/cf-tabbar/cf-tabbar"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/cf-tabbar/cf-tabbar":"components/cf-tabbar/cf-tabbar","node-modules/uview-ui/components/u-popup/u-popup":"node-modules/uview-ui/components/u-popup/u-popup","node-modules/uview-ui/components/u-icon/u-icon":"node-modules/uview-ui/components/u-icon/u-icon","node-modules/uview-ui/components/u-overlay/u-overlay":"node-modules/uview-ui/components/u-overlay/u-overlay","node-modules/uview-ui/components/u-safe-bottom/u-safe-bottom":"node-modules/uview-ui/components/u-safe-bottom/u-safe-bottom","node-modules/uview-ui/components/u-status-bar/u-status-bar":"node-modules/uview-ui/components/u-status-bar/u-status-bar","node-modules/uview-ui/components/u-transition/u-transition":"node-modules/uview-ui/components/u-transition/u-transition"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

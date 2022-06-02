@@ -1,6 +1,6 @@
 ### [05301734]
-登录页样式搭建, 
-全局scss放app.vue的style里没用, scss要全局使用的话，每个文件都需要导入，所以还是要放在uni.scss里
+- 登录页样式搭建
+  全局scss放app.vue的style里没用, scss要全局使用的话，每个文件都需要导入，所以还是要放在uni.scss里
 ### [05311732]
 - 封装post请求
   小程序不支持fetch,只能用uniapp的原生uni-request
@@ -16,4 +16,18 @@
   变通方法: 后端把生成的token作为正常数据返回，
 	小程序里把它存在vuex状态机里，需要令牌的请求在请求头headers里加相应字段，后端再增加对应字段的判断;
 	另外,w3c设定了headers里的保留字段，像cookie就不能用，可以用authorization，当然避开保留就可以了
+### [06021725]
+- 昨天的问题续
+  微信小程序原生sessionStorage不行，应该用uni.setStorage相关就可以了
+- 封装了节流工具模块throttle
+  再次复习下闭包
+	```
+	function foo () {
+		;(()=>{ return 1})()
+	}
+	```
+	并不是foo() `return 1`;
+	export default xx, 貌似不能用解构的形式去import
+- 设备信息页面基本OK, 智能控制页面搭好了样式
+- 引入uview ui, 对照github指南操作
 	
