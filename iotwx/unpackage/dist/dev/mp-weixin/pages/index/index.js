@@ -179,6 +179,7 @@ var _default =
           console.log(data);
           if (!data.err) {
             th.$store.commit("changeVal", { k: "token", v: data.tkid });
+            th.init();
             setTimeout(function () {
               uni.navigateTo({
                 url: "/pages/main/main",
@@ -186,8 +187,20 @@ var _default =
                   // sessionStorage.setItem("token", data.tkid)
                 } });
 
-            }, 200);
+            }, 500);
           } else uni.showToast({ title: "邮箱或密码错误", icon: "error" });
+        } });
+
+    },
+    init: function init() {
+      this.initDevList();
+    },
+    initDevList: function initDevList() {var _this = this;
+      this.$reqGet({
+        url: "".concat(this.$baseUrl, "/dev/getDevList"),
+        rsv: function rsv(data) {
+          _this.$store.commit("changeVal", { k: "_devList", v: data.data });
+          _this.$store.commit("resetData");
         } });
 
     } } };exports.default = _default;

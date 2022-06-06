@@ -8798,11 +8798,24 @@ var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 13));function
 _vue.default.use(_vuex.default);
 var store = new _vuex.default.Store({
   state: { //存放状态
-    token: "" },
+    token: "",
+    _curIdx: 0,
+    _devList: [],
+    _btnState: [],
+    _ranState: [] },
 
   mutations: {
+    resetData: function resetData(state) {
+      state._devList.forEach(function (e) {
+        state._btnState.push(Array(4).fill(0));
+        state._ranState.push(Array(4).fill(0));
+      });
+    },
     changeVal: function changeVal(state, _ref) {var k = _ref.k,v = _ref.v;
       state[k] = v;
+    },
+    changeArrVal: function changeArrVal(satate, _ref2) {var k = _ref2.k,v = _ref2.v,idx = _ref2.idx;
+      _vue.default.set(state[k][idx[0]][idx[1]], v);
     } } });var _default =
 
 
@@ -19192,26 +19205,7 @@ platform;exports.default = _default;
 /* 149 */,
 /* 150 */,
 /* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */
+/* 152 */
 /*!***************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/utils/throttle.js ***!
   \***************************************************************************************/
@@ -19242,15 +19236,29 @@ throttle;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
 /* 172 */,
 /* 173 */,
 /* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */
+/* 175 */
 /*!***********************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-popup/props.js ***!
   \***********************************************************************************************************************/
@@ -19337,14 +19345,14 @@ throttle;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
 /* 181 */,
 /* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */
+/* 183 */
 /*!*************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-overlay/props.js ***!
   \*************************************************************************************************************************/
@@ -19376,14 +19384,14 @@ throttle;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
 /* 189 */,
 /* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */
+/* 191 */
 /*!****************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-transition/props.js ***!
   \****************************************************************************************************************************/
@@ -19415,7 +19423,7 @@ throttle;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 197 */
+/* 192 */
 /*!*********************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-transition/transition.js ***!
   \*********************************************************************************************************************************/
@@ -19426,7 +19434,7 @@ throttle;exports.default = _default;
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 36));
 
 
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 198));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 193));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
 var nextTick = function nextTick() {return new Promise(function (resolve) {return setTimeout(resolve, 1000 / 50);});}; // nvue动画模块实现细节抽离在外部文件
 
 // 定义类名，通过给元素动态切换类名，赋予元素一定的css动画样式
@@ -19580,7 +19588,7 @@ var getClassNames = function getClassNames(name) {return {
     } } };exports.default = _default;
 
 /***/ }),
-/* 198 */
+/* 193 */
 /*!***********************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
   \***********************************************************************************************************************************/
@@ -19656,14 +19664,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     'leave-to': { opacity: 0, transform: 'scale(0.95)' } } };exports.default = _default;
 
 /***/ }),
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
 /* 199 */,
 /* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */
+/* 201 */
 /*!****************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-status-bar/props.js ***!
   \****************************************************************************************************************************/
@@ -19679,14 +19687,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
 /* 207 */,
 /* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */
+/* 209 */
 /*!**********************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-icon/icons.js ***!
   \**********************************************************************************************************************/
@@ -19909,7 +19917,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   'uicon-en': "\uE692" };exports.default = _default;
 
 /***/ }),
-/* 215 */
+/* 210 */
 /*!**********************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-icon/props.js ***!
   \**********************************************************************************************************************/
@@ -20006,14 +20014,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
 /* 216 */,
 /* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */
+/* 218 */
 /*!*****************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-safe-bottom/props.js ***!
   \*****************************************************************************************************************************/

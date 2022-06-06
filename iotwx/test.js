@@ -1,5 +1,6 @@
-function a ({b=1,c=2}={}) {
-	console.log(b,c)
+let a = []
+for (let i = 0; i<3; i++) {
+	a.push(Array(2))
 }
-a()
-a({b:3})
+a[0][1] = 1
+console.log(a)

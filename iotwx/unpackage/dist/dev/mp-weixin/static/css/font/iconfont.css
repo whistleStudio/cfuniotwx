@@ -11,6 +11,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-shujushujudian:before {
+  content: "\e649";
+}
+
+.icon-tuichu:before {
+  content: "\e620";
+}
+
 .icon-zhongzhimima:before {
   content: "\e60a";
 }

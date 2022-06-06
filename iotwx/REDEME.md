@@ -30,4 +30,9 @@
 	export default xx, 貌似不能用解构的形式去import
 - 设备信息页面基本OK, 智能控制页面搭好了样式
 - 引入uview ui, 对照github指南操作
-	
+### [06061738]	
+- 左侧弹出组件
+- 状态机增加		_curIdx: 0,
+		_devList: [],
+		_btnState: [],
+		_ranState: []

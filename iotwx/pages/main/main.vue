@@ -23,6 +23,7 @@
 </template>
 
 <script>
+	//store _devList还未修改
 	import throttle from "../../utils/throttle.js"
 	
 	export default {
@@ -48,7 +49,7 @@
 		methods: {
 			thLiClick: throttle.clickLimit(function(){
 				this.resetCode()
-			},{limit:1000}),
+			},{limit:500}),
 			liClick (i) {
 				switch (i) {
 					case 2:
@@ -100,6 +101,7 @@
 			this.$reqGet({
 				url:`${this.$baseUrl}/dev/getDevList`,
 				rsv: (data) => {
+					// this.$store.commit("changeVal", {k:"_devList", v:data.data})
 					this.devList = data.data
 					this.devInfo[0].count = this.devList.length
 					this.devInfo[1].count = this.olCount()

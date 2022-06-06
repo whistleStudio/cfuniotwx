@@ -18,7 +18,7 @@
 				tabInfo: [
 					{text:"设备信息", icon:"icon-shebei", link: "/pages/main/main"},
 					{text:"智能控制", icon:"icon-xitongkongzhi", link: "/pages/control/control"},
-					{text:"数据监控", icon:"icon-shuju"}
+					{text:"数据监控", icon:"icon-shujushujudian"}
 				],
 			};
 		},

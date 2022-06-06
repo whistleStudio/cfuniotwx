@@ -1,6 +1,7 @@
 import App from './App'
 import store from './store'
 import Vue from 'vue'
+// import throttle from "@/utils/throttle.js"
 Vue.config.productionTip = false
 App.mpType = 'app'
 Vue.prototype.$store = store

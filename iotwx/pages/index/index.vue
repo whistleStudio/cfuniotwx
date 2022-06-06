@@ -47,6 +47,7 @@
 						console.log(data)
 						if (!data.err) {
 							th.$store.commit("changeVal", {k:"token", v:data.tkid})
+							th.init()
 							setTimeout(()=>{
 								uni.navigateTo({
 									url: "/pages/main/main",
@@ -54,8 +55,20 @@
 										// sessionStorage.setItem("token", data.tkid)
 									}
 								})
-							},200)
+							},500)
 						} else uni.showToast({title:"邮箱或密码错误",icon:"error"})
+					}
+				})
+			},
+			init () {
+				this.initDevList()
+			},
+			initDevList () {
+				this.$reqGet({
+					url:`${this.$baseUrl}/dev/getDevList`,
+					rsv: (data) => {
+						this.$store.commit("changeVal", {k:"_devList", v:data.data})
+						this.$store.commit("resetData")
 					}
 				})
 			}
