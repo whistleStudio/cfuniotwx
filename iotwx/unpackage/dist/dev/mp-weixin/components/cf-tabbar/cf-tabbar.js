@@ -134,7 +134,7 @@ var _default =
       tabInfo: [
       { text: "设备信息", icon: "icon-shebei", link: "/pages/main/main" },
       { text: "智能控制", icon: "icon-xitongkongzhi", link: "/pages/control/control" },
-      { text: "数据监控", icon: "icon-shujushujudian" }] };
+      { text: "数据监控", icon: "icon-shujushujudian", link: "/pages/data/data" }] };
 
 
   },
@@ -175,6 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)","main_colorAA":"rgba(0, 161, 233, 0.3)"};
     if(false) { var cssReload; }
   
 

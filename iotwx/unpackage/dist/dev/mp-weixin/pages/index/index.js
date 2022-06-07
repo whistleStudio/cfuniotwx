@@ -176,7 +176,6 @@ var _default =
         url: "".concat(this.$baseUrl, "/login"),
         body: this.info,
         rsv: function rsv(data) {
-          console.log(data);
           if (!data.err) {
             th.$store.commit("changeVal", { k: "token", v: data.tkid });
             th.init();
@@ -184,7 +183,7 @@ var _default =
               uni.navigateTo({
                 url: "/pages/main/main",
                 success: function success() {
-                  // sessionStorage.setItem("token", data.tkid)
+
                 } });
 
             }, 500);
@@ -232,6 +231,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)","main_colorAA":"rgba(0, 161, 233, 0.3)"};
     if(false) { var cssReload; }
   
 

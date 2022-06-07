@@ -8799,23 +8799,26 @@ _vue.default.use(_vuex.default);
 var store = new _vuex.default.Store({
   state: { //存放状态
     token: "",
+    _username: "",
     _curIdx: 0,
     _devList: [],
     _btnState: [],
-    _ranState: [] },
+    _ranState: [],
+    _dataState: [] },
 
   mutations: {
     resetData: function resetData(state) {
       state._devList.forEach(function (e) {
         state._btnState.push(Array(4).fill(0));
         state._ranState.push(Array(4).fill(0));
+        state._dataState.push(Array(8).fill(0));
       });
     },
     changeVal: function changeVal(state, _ref) {var k = _ref.k,v = _ref.v;
       state[k] = v;
     },
-    changeArrVal: function changeArrVal(satate, _ref2) {var k = _ref2.k,v = _ref2.v,idx = _ref2.idx;
-      _vue.default.set(state[k][idx[0]][idx[1]], v);
+    changeArrVal: function changeArrVal(state, _ref2) {var k = _ref2.k,v = _ref2.v,idx = _ref2.idx;
+      _vue.default.set(state[k][idx[0]], idx[1], v);
     } } });var _default =
 
 
@@ -20031,6 +20034,49 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
   props: {} };exports.default = _default;
+
+/***/ }),
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */
+/*!******************************************************************************************!*\
+  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/static/css/base.scss ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)","main_colorAA":"rgba(0, 161, 233, 0.3)"};
+    if(false) { var cssReload; }
+  
 
 /***/ })
 ]]);

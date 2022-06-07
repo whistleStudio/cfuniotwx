@@ -95,6 +95,7 @@
 					console.log(data)
 					this.userInfo.name = data.name
 					this.userInfo.avatar = data.avatar
+					this.$store.commit("changeVal", {k:"_username", v:data.name})
 				}
 			}),
 			/* 获取设备列表 */

@@ -117,8 +117,10 @@ page {
 .text-plh {
   color: #d2d2d2;
 }
-.ctrl {
+.data {
   padding: 0 50rpx;
+  font-family: "微软雅黑", "Micosoft Yahei", "Micosoft YaHei", "sans-serif";
+  color: #464646;
 }
 .curDev {
   padding-top: 30rpx;
@@ -139,53 +141,63 @@ page {
   position: absolute;
   float: right;
 }
-.sendMsg {
-  position: relative;
-  display: flex;
-}
-.sendMsg input {
-  width: 510rpx;
-  height: 60rpx;
-  padding-left: 20rpx;
-  box-sizing: border-box;
-  border: 1px solid gainsboro;
-  border-radius: 5px;
-}
-.sendMsg button {
-  width: 150rpx;
-  height: 60rpx;
-  position: absolute;
-  z-index: 2;
-  right: 0;
-}
-.sendData {
+.subMsg {
   width: 100%;
-  height: 250rpx;
+  height: 200rpx;
+  padding: 20rpx;
+  box-shadow: 1px 1px 1px 1px gainsboro;
+  border-radius: 5rpx;
+  box-sizing: border-box;
+}
+.subMsg switch {
+  margin-right: 20rpx;
+}
+.subMsg .msg-box {
+  padding-left: 15rpx;
+  font: 45rpx/70rpx "微软雅黑", "Micosoft Yahei", "Micosoft YaHei", "sans-serif";
+  width: 100%;
+  height: 70rpx;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.subD {
+  width: 100%;
+}
+.subD .subData {
+  width: 100%;
+  height: 530rpx;
+  padding: 20rpx;
+  box-shadow: 1px 1px 1px 1px gainsboro;
+  border-radius: 5rpx;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
 }
-.sendData button {
-  width: 300rpx;
-  height: 100rpx;
-  margin: 0;
-  line-height: 100rpx;
+.subD .subData .data-container {
+  width: 47%;
+  height: 220rpx;
+  flex: none;
 }
-.sendData .btnActive {
-  background-color: #00A1E9;
+.subD .subData .data-container switch {
+  margin-right: 20rpx;
+}
+.subD .subData .data-container .data-box {
+  width: 100%;
+  height: 120rpx;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  font: 50rpx/120rpx "微软雅黑", "Micosoft Yahei", "Micosoft YaHei", "sans-serif";
+}
+.subD .expand {
   color: white;
-}
-.sendRan {
   width: 100%;
-}
-.sendRan .ran {
-  width: 100%;
-}
-.sendRan .ran > view:first-child {
-  font-size: 25rpx;
-}
-.sendRan .ran slider {
-  width: 600rpx;
+  height: 60rpx;
+  font: 35rpx/60rpx "微软雅黑", "Micosoft Yahei", "Micosoft YaHei", "sans-serif";
+  background-color: rgba(0, 161, 233, 0.6);
 }
 

@@ -250,6 +250,7 @@ var _default = { data: function data() {return { devInfo: [{ des: "设备总量"
         console.log(data);
         _this2.userInfo.name = data.name;
         _this2.userInfo.avatar = data.avatar;
+        _this2.$store.commit("changeVal", { k: "_username", v: data.name });
       } }),
 
     /* 获取设备列表 */
@@ -299,6 +300,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)","main_colorAA":"rgba(0, 161, 233, 0.3)"};
     if(false) { var cssReload; }
   
 

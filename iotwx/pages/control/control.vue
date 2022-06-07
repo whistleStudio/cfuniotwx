@@ -2,63 +2,45 @@
 	<view class="control">
 		<view class="ctrl">
 			<view class="curDev">
-				<text>{{devList[currentIdx].name}}</text>
+				<text>{{$store.state._devList[currentIdx].name}}</text>
 				<button type="primary" size="mini" @click="changeDev">更换设备</button>
 			</view>
 			<view class="sendMsg mgt-50">
 			<view class="uni-form-item uni-column">
-				<button size="mini">发送</button>
-				<input class="uni-input" maxlength="20" placeholder="最大输入长度为20" placeholder-class="text-plh"/>
+				<button size="mini" @click="sendMsg">发送</button>
+				<input v-model="msgW" class="uni-input" maxlength="20" placeholder="最大输入长度为20" placeholder-class="text-plh"/>
 			</view>				
 			</view>
 			<view class="sendData mgt-50">
 				<button v-for="(v,i) in Array(4)" :key="i" 
-				@click="btnChange(i)"
+				@click="btnChange(i)" :class="{btnActive: btnState[i]}"
 				size="mini">按钮{{String.fromCharCode(65+i)}}</button>
 			</view>
 			<view class="sendRan mgt-50">
 				<view v-for="(v,i) in Array(4)" :key="i" class="ran">
 					<view class="uni-title">滑杆{{String.fromCharCode(65+i)}}</view>
 					<view>
-						<slider value="50" @change="sliderChange" block-size="20" 
-						activeColor="#00A1E9" show-value />
+						<slider :value="ranState[i]" @change="sliderChange($event,i)" block-size="20" 
+						:activeColor="styleVar.main_color" show-value />
 					</view>
 				</view>
 			</view>			
 		</view>
 		<cf-tabbar :actTabIdx="1"></cf-tabbar>
-		
-		<u-popup :show="isShowPopup" mode="left" bgColor="rgb(250,250,250)" @close="close" @open="open">
-			<view class="popup">
-				<view class="pop-head">
-					<text @click="closePop" class="iconfont icon-tuichu"></text>
-				</view>
-				<view class="pop-list uni-list">
-					<radio-group @change="radioChange">
-						<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in devList" :key="item.value">
-							<view>
-								<radio :value="item.value" :checked="index == currentIdx" />
-							</view>
-							<view>{{item.name}}</view>
-						</label>
-					</radio-group>
-				</view>
-			</view>
-		</u-popup>
-
+		<cf-leftpop :isShowPop="isShowPop" @closePop="closePop"></cf-leftpop>
 	</view>
 </template>
 
 <script>
 	import throttle from "../../utils/throttle.js"
+	import styleVar from "@/static/css/base.scss"
 	
 	export default {
 		data() {
 			return {
-				isShowPopup: false,
-				devList: [
-					{name:"loading ...", value:"0"},
-			  ],
+				styleVar,
+				isShowPop: false,
+				msgW: "",
 			}
 		},
 		computed: {
@@ -68,37 +50,48 @@
 		},
 		methods: {
 			changeDev () {
-				this.isShowPopup = true
+				this.isShowPop = true
 			},
-			btnChange: throttle.clickLimit(function(j){
-				// let i = this.currentIdx
-				// let v = parseInt(this.btnState[i][j]) ? 0 : 1
-				// this.$store.commit("changeArrVal", {k:"_btnState", v, idx:[i,j]})
+			sendMsg: throttle.clickLimit(function(){
+				this.$reqPost({
+					url: `${this.$baseUrl}/ctrl/pubMsgW`,
+					body: {
+						user: this.$store.state._username,
+						did: this.$store.state._devList[this.currentIdx].did,
+						msgW: this.msgW
+					}
+				})
 			}),
-			sliderChange () {
-				
-			},
+			btnChange: throttle.clickLimit(function(j){
+				let i = this.currentIdx
+				let v = parseInt(this.btnState[j]) ? 0 : 1
+				this.$store.commit("changeArrVal", {k:"_btnState", v, idx:[i,j]})
+				this.$reqPost({
+					url: `${this.$baseUrl}/ctrl/btnVal`,
+					body: {
+						user: this.$store.state._username,
+						did: this.$store.state._devList[this.currentIdx].did,
+						btnArr: this.btnState
+					}
+				})
+			}),
+			sliderChange: throttle.clickLimit(function(ev,j){
+				let i = this.currentIdx
+				let v = ev.detail.value
+				this.$store.commit("changeArrVal", {k:"_ranState", v, idx:[i,j]})
+				this.$reqPost({
+					url: `${this.$baseUrl}/ctrl/rangeVal`,
+					body: {
+						user: this.$store.state._username,
+						did: this.$store.state._devList[this.currentIdx].did,
+						ranArr: this.ranState
+					}
+				})
+			}),
 			closePop () {
-				this.isShowPopup = false
+				this.isShowPop = false
 			},
-			radioChange (ev) {
-				this.currentIdx = ev.detail.value
-				this.$store.commit("changeVal", {k:"_curIdx", v:this.currentIdx})
-			}
 		},
-		// watch: {
-		// 	currentIdx (newVal) {
-		// 		this.btnState = this._btnState[newVal]
-		// 		this.ranState = this._ranState[newVal]
-		// 	}
-		// },
-		onLoad () {
-			let tempDevList = []
-			this.$store.state._devList.forEach((v,i) => {
-				tempDevList.push({name:v.name, value:i+""})
-			})
-			this.devList = tempDevList
-		}
 	}
 </script>
 
@@ -107,7 +100,7 @@
 		padding: 0 50rpx;
 	}
 	.curDev {
-		margin-top: 30rpx;
+		padding-top: 30rpx;
 		width: 100%;
 		height: 100rpx;
 		border-bottom: 1px solid rgb(230,230,230);
@@ -122,7 +115,6 @@
 		button {
 			right: 0;
 			position: absolute;
-			// width: 200rpx;
 			float:right;
 		}
 	}
@@ -158,7 +150,10 @@
 			height: 100rpx;
 			margin: 0;
 			line-height: 100rpx;
-			
+		}
+		.btnActive {
+			background-color: $mainColor;
+			color: white;
 		}
 	}
 	.sendRan {
@@ -173,50 +168,5 @@
 			}
 		}
 	}
-	.popup {
-		width: 500rpx;
-		padding: 50rpx 0;
-		box-sizing: border-box;
-		.pop-head {
-			padding: 0 50rpx;
-			height: 80rpx;
-			text {
-				text-align: center;
-				display: inline-block;
-				font: 40rpx/70rpx $fontF;
-				float: right;
-				&:first-child {
-					color: white;
-					background-color: lightseagreen;
-					width: 70rpx;
-					height: 70rpx;
-					border-radius: 50%;	
-					margin-left: 20rpx;
-				}
-				// &:last-child {
-				// 	color: lightseagreen;
-				// }
-			}
-		}
-		.pop-list {
-			margin-top: 30rpx;
-			label {
-				height: 100rpx;
-				line-height: 100rpx;
-				padding: 0 50rpx;
-				background-color: white;
-				display: block;
-				box-sizing: border-box;
-				&:not(:last-of-type) {
-					border-bottom: 1px solid rgb(240,240,240);
-				}
-				view {
-					display: inline-block;
-					&:last-child {
-						margin-left: 20rpx;
-					}
-				}
-			}
-		}
-	}
+
 </style>

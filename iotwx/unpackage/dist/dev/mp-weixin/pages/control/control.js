@@ -98,8 +98,8 @@ try {
     cfTabbar: function() {
       return __webpack_require__.e(/*! import() | components/cf-tabbar/cf-tabbar */ "components/cf-tabbar/cf-tabbar").then(__webpack_require__.bind(null, /*! @/components/cf-tabbar/cf-tabbar.vue */ 163))
     },
-    uPopup: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-popup/u-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-popup/u-popup")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-popup/u-popup.vue */ 170))
+    cfLeftpop: function() {
+      return __webpack_require__.e(/*! import() | components/cf-leftpop/cf-leftpop */ "components/cf-leftpop/cf-leftpop").then(__webpack_require__.bind(null, /*! @/components/cf-leftpop/cf-leftpop.vue */ 232))
     }
   }
 } catch (e) {
@@ -152,6 +152,16 @@ var render = function() {
       var _temp, _temp2
 
       return _vm.btnChange(i)
+    }
+
+    _vm.e1 = function($event, i) {
+      var _temp3 = arguments[arguments.length - 1].currentTarget.dataset,
+        _temp4 = _temp3.eventParams || _temp3["event-params"],
+        i = _temp4.i
+
+      var _temp3, _temp4
+
+      return _vm.sliderChange($event, i)
     }
   }
 
@@ -231,85 +241,65 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ../../utils/throttle.js */ 152));
+var _base = _interopRequireDefault(__webpack_require__(/*! @/static/css/base.scss */ 249));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { styleVar: _base.default, isShowPop: false, msgW: "" };}, computed: { currentIdx: function currentIdx() {return this.$store.state._curIdx;}, btnState: function btnState() {return this.$store.state._btnState[this.currentIdx];}, ranState: function ranState() {return this.$store.state._ranState[this.currentIdx];} }, methods: { changeDev: function changeDev() {this.isShowPop = true;}, sendMsg: _throttle.default.clickLimit(function () {this.$reqPost({ url: "".concat(this.$baseUrl, "/ctrl/pubMsgW"), body: { user: this.$store.state._username, did: this.$store.state._devList[this.currentIdx].did, msgW: this.msgW } });}), btnChange: _throttle.default.clickLimit(function (j) {var i = this.currentIdx;var v = parseInt(this.btnState[j]) ? 0 : 1;this.$store.commit("changeArrVal", { k: "_btnState", v: v, idx: [i, j] });this.$reqPost({
+        url: "".concat(this.$baseUrl, "/ctrl/btnVal"),
+        body: {
+          user: this.$store.state._username,
+          did: this.$store.state._devList[this.currentIdx].did,
+          btnArr: this.btnState } });
 
 
+    }),
+    sliderChange: _throttle.default.clickLimit(function (ev, j) {
+      var i = this.currentIdx;
+      var v = ev.detail.value;
+      this.$store.commit("changeArrVal", { k: "_ranState", v: v, idx: [i, j] });
+      this.$reqPost({
+        url: "".concat(this.$baseUrl, "/ctrl/rangeVal"),
+        body: {
+          user: this.$store.state._username,
+          did: this.$store.state._devList[this.currentIdx].did,
+          ranArr: this.ranState } });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ../../utils/throttle.js */ 152));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { isShowPopup: false, devList: [{ name: "loading ...", value: "0" }] };}, computed: { currentIdx: function currentIdx() {return this.$store.state._curIdx;}, btnState: function btnState() {return this.$store.state._btnState[this.currentIdx];}, ranState: function ranState() {return this.$store.state._ranState[this.currentIdx];} }, methods: { changeDev: function changeDev() {this.isShowPopup = true;}, btnChange: _throttle.default.clickLimit(function (j) {// let i = this.currentIdx
-      // let v = parseInt(this.btnState[i][j]) ? 0 : 1
-      // this.$store.commit("changeArrVal", {k:"_btnState", v, idx:[i,j]})
-    }), sliderChange: function sliderChange() {}, closePop: function closePop() {this.isShowPopup = false;}, radioChange: function radioChange(ev) {this.currentIdx = ev.detail.value;this.$store.commit("changeVal", { k: "_curIdx", v: this.currentIdx });} }, // watch: {
-  // 	currentIdx (newVal) {
-  // 		this.btnState = this._btnState[newVal]
-  // 		this.ranState = this._ranState[newVal]
-  // 	}
-  // },
-  onLoad: function onLoad() {var tempDevList = [];this.$store.state._devList.forEach(function (v, i) {tempDevList.push({ name: v.name, value: i + "" });});this.devList = tempDevList;} };exports.default = _default;
+    }),
+    closePop: function closePop() {
+      this.isShowPop = false;
+    } } };exports.default = _default;
 
 /***/ }),
 
@@ -337,6 +327,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)","main_colorAA":"rgba(0, 161, 233, 0.3)"};
     if(false) { var cssReload; }
   
 

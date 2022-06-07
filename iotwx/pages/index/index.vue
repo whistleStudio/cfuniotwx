@@ -44,7 +44,6 @@
 					url: `${this.$baseUrl}/login`,
 					body: this.info,
 					rsv (data) {
-						console.log(data)
 						if (!data.err) {
 							th.$store.commit("changeVal", {k:"token", v:data.tkid})
 							th.init()
@@ -52,7 +51,7 @@
 								uni.navigateTo({
 									url: "/pages/main/main",
 									success(){
-										// sessionStorage.setItem("token", data.tkid)
+
 									}
 								})
 							},500)

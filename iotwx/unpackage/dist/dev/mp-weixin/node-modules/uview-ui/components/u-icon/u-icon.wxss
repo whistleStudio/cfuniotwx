@@ -46,6 +46,11 @@ page.data-v-172979f2 {
 .text-plh.data-v-172979f2 {
   color: #d2d2d2;
 }
+.data-v-172979f2:export {
+  main_color: #00A1E9;
+  main_colorA: rgba(0, 161, 233, 0.6);
+  main_colorAA: rgba(0, 161, 233, 0.3);
+}
 view.data-v-172979f2, scroll-view.data-v-172979f2, swiper-item.data-v-172979f2 {
   display: flex;
   flex-direction: column;

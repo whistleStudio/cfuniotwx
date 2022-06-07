@@ -36,3 +36,20 @@
 		_devList: [],
 		_btnState: [],
 		_ranState: []
+### [06071745]
+- control页面完成
+- scss 样式变量导入js文件方法
+```
+<!-- a.scss文件里 -->
+$mainColor: red
+:export {
+  main_color: $mainColor;
+}
+<!-- js 文件 -->
+import xxx from a.scss
+
+let a = xxx.main_color
+```
+- cf-leftpop组件抽离
+- data页面样式基本完成
+- store状态机新增_username, _curIdx, _dataState

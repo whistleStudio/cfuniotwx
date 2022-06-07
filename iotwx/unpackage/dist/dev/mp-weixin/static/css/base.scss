@@ -29,3 +29,9 @@ page {
 .text-plh{
 	color: rgb(210,210,210);
 }
+
+:export {
+  main_color: $mainColor;
+	main_colorA: $mainColorA;
+	main_colorAA: $mainColorAA;
+}
