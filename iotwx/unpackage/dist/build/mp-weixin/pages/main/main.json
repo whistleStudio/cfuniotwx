@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "CFun-IoT",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "cf-tabbar": "/components/cf-tabbar/cf-tabbar",
+    "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal"
+  }
+}

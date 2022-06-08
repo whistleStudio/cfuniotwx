@@ -19600,18 +19600,10 @@ throttle;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */
-/*!******************************************************************************************!*\
-  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/static/css/base.scss ***!
-  \******************************************************************************************/
+/* 153 */
+/*!*************************************************************************************!*\
+  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/style/base.scss ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19621,6 +19613,14 @@ module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)",
   
 
 /***/ }),
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
 /* 162 */,
 /* 163 */,
 /* 164 */,
@@ -19643,14 +19643,113 @@ module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)",
 /* 181 */,
 /* 182 */,
 /* 183 */,
-/* 184 */,
+/* 184 */
+/*!***********************************************************************************************************************!*\
+  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-modal/props.js ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  props: {
+    // 是否展示modal
+    show: {
+      type: Boolean,
+      default: uni.$u.props.modal.show },
+
+    // 标题
+    title: {
+      type: [String],
+      default: uni.$u.props.modal.title },
+
+    // 弹窗内容
+    content: {
+      type: String,
+      default: uni.$u.props.modal.content },
+
+    // 确认文案
+    confirmText: {
+      type: String,
+      default: uni.$u.props.modal.confirmText },
+
+    // 取消文案
+    cancelText: {
+      type: String,
+      default: uni.$u.props.modal.cancelText },
+
+    // 是否显示确认按钮
+    showConfirmButton: {
+      type: Boolean,
+      default: uni.$u.props.modal.showConfirmButton },
+
+    // 是否显示取消按钮
+    showCancelButton: {
+      type: Boolean,
+      default: uni.$u.props.modal.showCancelButton },
+
+    // 确认按钮颜色
+    confirmColor: {
+      type: String,
+      default: uni.$u.props.modal.confirmColor },
+
+    // 取消文字颜色
+    cancelColor: {
+      type: String,
+      default: uni.$u.props.modal.cancelColor },
+
+    // 对调确认和取消的位置
+    buttonReverse: {
+      type: Boolean,
+      default: uni.$u.props.modal.buttonReverse },
+
+    // 是否开启缩放效果
+    zoom: {
+      type: Boolean,
+      default: uni.$u.props.modal.zoom },
+
+    // 是否异步关闭，只对确定按钮有效
+    asyncClose: {
+      type: Boolean,
+      default: uni.$u.props.modal.asyncClose },
+
+    // 是否允许点击遮罩关闭modal
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: uni.$u.props.modal.closeOnClickOverlay },
+
+    // 给一个负的margin-top，往上偏移，避免和键盘重合的情况
+    negativeTop: {
+      type: [String, Number],
+      default: uni.$u.props.modal.negativeTop },
+
+    // modal宽度，不支持百分比，可以数值，px，rpx单位
+    width: {
+      type: [String, Number],
+      default: uni.$u.props.modal.width },
+
+    // 确认按钮的样式，circle-圆形，square-方形，如设置，将不会显示取消按钮
+    confirmButtonShape: {
+      type: String,
+      default: uni.$u.props.modal.confirmButtonShape } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
 /* 185 */,
 /* 186 */,
 /* 187 */,
 /* 188 */,
 /* 189 */,
 /* 190 */,
-/* 191 */
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */
 /*!***********************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-popup/props.js ***!
   \***********************************************************************************************************************/
@@ -19737,14 +19836,136 @@ module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)",
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */
+/*!**********************************************************************************************************************!*\
+  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-line/props.js ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  props: {
+    color: {
+      type: String,
+      default: uni.$u.props.line.color },
+
+    // 长度，竖向时表现为高度，横向时表现为长度，可以为百分比，带px单位的值等
+    length: {
+      type: [String, Number],
+      default: uni.$u.props.line.length },
+
+    // 线条方向，col-竖向，row-横向
+    direction: {
+      type: String,
+      default: uni.$u.props.line.direction },
+
+    // 是否显示细边框
+    hairline: {
+      type: Boolean,
+      default: uni.$u.props.line.hairline },
+
+    // 线条与上下左右元素的间距，字符串形式，如"30px"、"20px 30px"
+    margin: {
+      type: [String, Number],
+      default: uni.$u.props.line.margin },
+
+    // 是否虚线，true-实线，false-虚线
+    dashed: {
+      type: Boolean,
+      default: uni.$u.props.line.dashed } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */
+/*!******************************************************************************************************************************!*\
+  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-loading-icon/props.js ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  props: {
+    // 是否显示组件
+    show: {
+      type: Boolean,
+      default: uni.$u.props.loadingIcon.show },
+
+    // 颜色
+    color: {
+      type: String,
+      default: uni.$u.props.loadingIcon.color },
+
+    // 提示文字颜色
+    textColor: {
+      type: String,
+      default: uni.$u.props.loadingIcon.textColor },
+
+    // 文字和图标是否垂直排列
+    vertical: {
+      type: Boolean,
+      default: uni.$u.props.loadingIcon.vertical },
+
+    // 模式选择，circle-圆形，spinner-花朵形，semicircle-半圆形
+    mode: {
+      type: String,
+      default: uni.$u.props.loadingIcon.mode },
+
+    // 图标大小，单位默认px
+    size: {
+      type: [String, Number],
+      default: uni.$u.props.loadingIcon.size },
+
+    // 文字大小
+    textSize: {
+      type: [String, Number],
+      default: uni.$u.props.loadingIcon.textSize },
+
+    // 文字内容
+    text: {
+      type: [String, Number],
+      default: uni.$u.props.loadingIcon.text },
+
+    // 动画模式
+    timingFunction: {
+      type: String,
+      default: uni.$u.props.loadingIcon.timingFunction },
+
+    // 动画执行周期时间
+    duration: {
+      type: [String, Number],
+      default: uni.$u.props.loadingIcon.duration },
+
+    // mode=circle时的暗边颜色
+    inactiveColor: {
+      type: String,
+      default: uni.$u.props.loadingIcon.inactiveColor } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */
 /*!*************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-overlay/props.js ***!
   \*************************************************************************************************************************/
@@ -19776,14 +19997,14 @@ module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)",
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */
 /*!****************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-transition/props.js ***!
   \****************************************************************************************************************************/
@@ -19815,7 +20036,7 @@ module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)",
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 208 */
+/* 232 */
 /*!*********************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-transition/transition.js ***!
   \*********************************************************************************************************************************/
@@ -19826,7 +20047,7 @@ module.exports = {"main_color":"#00A1E9","main_colorA":"rgba(0, 161, 233, 0.6)",
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 36));
 
 
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 209));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 233));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
 var nextTick = function nextTick() {return new Promise(function (resolve) {return setTimeout(resolve, 1000 / 50);});}; // nvue动画模块实现细节抽离在外部文件
 
 // 定义类名，通过给元素动态切换类名，赋予元素一定的css动画样式
@@ -19980,7 +20201,7 @@ var getClassNames = function getClassNames(name) {return {
     } } };exports.default = _default;
 
 /***/ }),
-/* 209 */
+/* 233 */
 /*!***********************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
   \***********************************************************************************************************************************/
@@ -20056,14 +20277,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     'leave-to': { opacity: 0, transform: 'scale(0.95)' } } };exports.default = _default;
 
 /***/ }),
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */
 /*!****************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-status-bar/props.js ***!
   \****************************************************************************************************************************/
@@ -20079,14 +20300,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */
 /*!**********************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-icon/icons.js ***!
   \**********************************************************************************************************************/
@@ -20309,7 +20530,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   'uicon-en': "\uE692" };exports.default = _default;
 
 /***/ }),
-/* 226 */
+/* 250 */
 /*!**********************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-icon/props.js ***!
   \**********************************************************************************************************************/
@@ -20406,14 +20627,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */
 /*!*****************************************************************************************************************************!*\
   !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-safe-bottom/props.js ***!
   \*****************************************************************************************************************************/
@@ -20423,241 +20644,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
   props: {} };exports.default = _default;
-
-/***/ }),
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */
-/*!***********************************************************************************************************************!*\
-  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-modal/props.js ***!
-  \***********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  props: {
-    // 是否展示modal
-    show: {
-      type: Boolean,
-      default: uni.$u.props.modal.show },
-
-    // 标题
-    title: {
-      type: [String],
-      default: uni.$u.props.modal.title },
-
-    // 弹窗内容
-    content: {
-      type: String,
-      default: uni.$u.props.modal.content },
-
-    // 确认文案
-    confirmText: {
-      type: String,
-      default: uni.$u.props.modal.confirmText },
-
-    // 取消文案
-    cancelText: {
-      type: String,
-      default: uni.$u.props.modal.cancelText },
-
-    // 是否显示确认按钮
-    showConfirmButton: {
-      type: Boolean,
-      default: uni.$u.props.modal.showConfirmButton },
-
-    // 是否显示取消按钮
-    showCancelButton: {
-      type: Boolean,
-      default: uni.$u.props.modal.showCancelButton },
-
-    // 确认按钮颜色
-    confirmColor: {
-      type: String,
-      default: uni.$u.props.modal.confirmColor },
-
-    // 取消文字颜色
-    cancelColor: {
-      type: String,
-      default: uni.$u.props.modal.cancelColor },
-
-    // 对调确认和取消的位置
-    buttonReverse: {
-      type: Boolean,
-      default: uni.$u.props.modal.buttonReverse },
-
-    // 是否开启缩放效果
-    zoom: {
-      type: Boolean,
-      default: uni.$u.props.modal.zoom },
-
-    // 是否异步关闭，只对确定按钮有效
-    asyncClose: {
-      type: Boolean,
-      default: uni.$u.props.modal.asyncClose },
-
-    // 是否允许点击遮罩关闭modal
-    closeOnClickOverlay: {
-      type: Boolean,
-      default: uni.$u.props.modal.closeOnClickOverlay },
-
-    // 给一个负的margin-top，往上偏移，避免和键盘重合的情况
-    negativeTop: {
-      type: [String, Number],
-      default: uni.$u.props.modal.negativeTop },
-
-    // modal宽度，不支持百分比，可以数值，px，rpx单位
-    width: {
-      type: [String, Number],
-      default: uni.$u.props.modal.width },
-
-    // 确认按钮的样式，circle-圆形，square-方形，如设置，将不会显示取消按钮
-    confirmButtonShape: {
-      type: String,
-      default: uni.$u.props.modal.confirmButtonShape } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */
-/*!**********************************************************************************************************************!*\
-  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-line/props.js ***!
-  \**********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  props: {
-    color: {
-      type: String,
-      default: uni.$u.props.line.color },
-
-    // 长度，竖向时表现为高度，横向时表现为长度，可以为百分比，带px单位的值等
-    length: {
-      type: [String, Number],
-      default: uni.$u.props.line.length },
-
-    // 线条方向，col-竖向，row-横向
-    direction: {
-      type: String,
-      default: uni.$u.props.line.direction },
-
-    // 是否显示细边框
-    hairline: {
-      type: Boolean,
-      default: uni.$u.props.line.hairline },
-
-    // 线条与上下左右元素的间距，字符串形式，如"30px"、"20px 30px"
-    margin: {
-      type: [String, Number],
-      default: uni.$u.props.line.margin },
-
-    // 是否虚线，true-实线，false-虚线
-    dashed: {
-      type: Boolean,
-      default: uni.$u.props.line.dashed } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */
-/*!******************************************************************************************************************************!*\
-  !*** D:/43542/Documents/WorkSpace/CFun World/j. 网站/cfuniotwx/iotwx/node_modules/uview-ui/components/u-loading-icon/props.js ***!
-  \******************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  props: {
-    // 是否显示组件
-    show: {
-      type: Boolean,
-      default: uni.$u.props.loadingIcon.show },
-
-    // 颜色
-    color: {
-      type: String,
-      default: uni.$u.props.loadingIcon.color },
-
-    // 提示文字颜色
-    textColor: {
-      type: String,
-      default: uni.$u.props.loadingIcon.textColor },
-
-    // 文字和图标是否垂直排列
-    vertical: {
-      type: Boolean,
-      default: uni.$u.props.loadingIcon.vertical },
-
-    // 模式选择，circle-圆形，spinner-花朵形，semicircle-半圆形
-    mode: {
-      type: String,
-      default: uni.$u.props.loadingIcon.mode },
-
-    // 图标大小，单位默认px
-    size: {
-      type: [String, Number],
-      default: uni.$u.props.loadingIcon.size },
-
-    // 文字大小
-    textSize: {
-      type: [String, Number],
-      default: uni.$u.props.loadingIcon.textSize },
-
-    // 文字内容
-    text: {
-      type: [String, Number],
-      default: uni.$u.props.loadingIcon.text },
-
-    // 动画模式
-    timingFunction: {
-      type: String,
-      default: uni.$u.props.loadingIcon.timingFunction },
-
-    // 动画执行周期时间
-    duration: {
-      type: [String, Number],
-      default: uni.$u.props.loadingIcon.duration },
-
-    // mode=circle时的暗边颜色
-    inactiveColor: {
-      type: String,
-      default: uni.$u.props.loadingIcon.inactiveColor } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 ]]);

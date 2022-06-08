@@ -1,0 +1,1 @@
+<view class="tabbar"><view class="_ul"><block wx:for="{{tabInfo}}" wx:for-item="v" wx:for-index="i" wx:key="i"><view data-event-opts="{{[['tap',[['changeTab',[i]]]]]}}" class="{{['flex-center','_li',(actTabIdx===i)?'actTab':'']}}" bindtap="__e"><text class="{{['iconfont',v.icon]}}"></text><text>{{v.text}}</text></view></block></view></view>

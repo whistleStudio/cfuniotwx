@@ -33,7 +33,7 @@
 
 <script>
 	import throttle from "../../utils/throttle.js"
-	import styleVar from "@/static/css/base.scss"
+	import styleVar from "@/style/base.scss"
 	
 	export default {
 		data() {

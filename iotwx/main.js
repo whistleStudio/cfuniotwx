@@ -8,13 +8,14 @@ Vue.prototype.$store = store
 import uView from 'uview-ui';
 Vue.use(uView);
 uni.$u.config.unit = 'rpx'
+// var baseUrl = "http://localhost:8082" 
 
 // #ifdef H5
 var baseUrl = '/api'
 // #endif
 
 // #ifndef H5
-var baseUrl = "http://localhost:8082" 
+var baseUrl = "https://iot.cfunworld.com/api" 
 // #endif
 Vue.prototype.$baseUrl = baseUrl
 
