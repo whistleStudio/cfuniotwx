@@ -2,7 +2,7 @@
 	<view class="control">
 		<view class="ctrl">
 			<view class="curDev">
-				<text>{{$store.state._devList[currentIdx].name}}</text>
+				<text>{{devName}}</text>
 				<button type="primary" size="mini" @click="changeDev">更换设备</button>
 			</view>
 			<view class="sendMsg mgt-50">
@@ -47,6 +47,7 @@
 			currentIdx () {return this.$store.state._curIdx},
 			btnState () {return this.$store.state._btnState[this.currentIdx]},
 			ranState () {return this.$store.state._ranState[this.currentIdx]},
+			devName () {return this.$store.state._devList[this.currentIdx].name},
 		},
 		methods: {
 			changeDev () {

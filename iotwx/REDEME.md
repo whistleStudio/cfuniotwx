@@ -53,3 +53,12 @@ let a = xxx.main_color
 - cf-leftpop组件抽离
 - data页面样式基本完成
 - store状态机新增_username, _curIdx, _dataState
+### [06081522]
+- data页面网络请求接口完成
+创建计时器数组tim 0- Cnum1，1-Cnum2, 2-Cmsg
+onload、切换设备时重置；
+unload、数据组均关闭时清空；
+数据组第一个打开时，打开
+- main页面增加退出登录模态框
+- 密钥点击自动复制到剪切板
+[问题？]微信小程序不支持在DOM里直接写$store

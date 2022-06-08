@@ -1,6 +1,5 @@
-let a = []
-for (let i = 0; i<3; i++) {
-	a.push(Array(2))
+let a = [1,2,3]
+for (let v of Array(2)) {
+	console.log("xx")
 }
-a[0][1] = 1
-console.log(a)
+

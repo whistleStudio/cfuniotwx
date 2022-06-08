@@ -9,7 +9,7 @@
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 5);
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 4));
 var _main = _interopRequireDefault(__webpack_require__(/*! ./pages/main/main.vue */ 147));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 createPage(_main.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
@@ -96,7 +96,10 @@ var components
 try {
   components = {
     cfTabbar: function() {
-      return __webpack_require__.e(/*! import() | components/cf-tabbar/cf-tabbar */ "components/cf-tabbar/cf-tabbar").then(__webpack_require__.bind(null, /*! @/components/cf-tabbar/cf-tabbar.vue */ 163))
+      return __webpack_require__.e(/*! import() | components/cf-tabbar/cf-tabbar */ "components/cf-tabbar/cf-tabbar").then(__webpack_require__.bind(null, /*! @/components/cf-tabbar/cf-tabbar.vue */ 172))
+    },
+    uModal: function() {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-modal/u-modal.vue */ 251))
     }
   }
 } catch (e) {
@@ -120,6 +123,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  if (!_vm._isMounted) {
+    _vm.e0 = function($event) {
+      _vm.modalInfo.isShow = true
+    }
+
+    _vm.e1 = function($event) {
+      _vm.modalInfo.isShow = false
+    }
+  }
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -179,7 +191,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ../../utils/throttle.js */ 152));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+
+
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ../../utils/throttle.js */ 152));
+var _base = _interopRequireDefault(__webpack_require__(/*! @/static/css/base.scss */ 161));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
 //
 //
 //
@@ -204,12 +221,30 @@ var _throttle = _interopRequireDefault(__webpack_require__(/*! ../../utils/throt
 //
 //
 //store _devList还未修改
-var _default = { data: function data() {return { devInfo: [{ des: "设备总量", icon: "icon-shebei1", count: "0" }, { des: "在线设备", icon: "icon-ai70", count: "0" }, { des: "连接密钥", icon: "icon-miyue" }, { des: "重置密钥", icon: "icon-zhongzhimima" }], userInfo: { avatar: 0, name: "loading", code: "" }, devList: [], isShowCode: false };}, computed: {}, methods: { thLiClick: _throttle.default.clickLimit(function () {this.resetCode();}, { limit: 500 }),
+var _default = { data: function data() {return { devInfo: [{ des: "设备总量", icon: "icon-shebei1", count: "0" }, { des: "在线设备", icon: "icon-ai70", count: "0" }, { des: "连接密钥", icon: "icon-miyue" }, { des: "重置密钥", icon: "icon-zhongzhimima" }], userInfo: { avatar: 0, name: "loading", code: "" }, devList: [], isShowCode: false, modalInfo: { isShow: false, content: "是否需要切换当前用户?" }, styleVar: _base.default };}, computed: {}, methods: {
+    /* 退出登录 */
+    logOut: function logOut() {
+      this.$store.commit("changeVal", { k: "token", v: "" });
+      setTimeout(function () {
+        uni.navigateTo({
+          url: "/pages/index/index" });
+
+      }, 200);
+    },
+    thLiClick: _throttle.default.clickLimit(function () {
+      this.resetCode();
+    }, { limit: 500 }),
+    /* 连接/重置密钥点击逻辑 */
     liClick: function liClick(i) {
       switch (i) {
         case 2:
           this.isShowCode = !this.isShowCode;
           this.devInfo[i].des = this.isShowCode ? this.userInfo.code : "连接密钥";
+          if (this.isShowCode) {
+            uni.setClipboardData({
+              data: this.userInfo.code });
+
+          }
           break;
         case 3:
           this.thLiClick();
@@ -242,12 +277,10 @@ var _default = { data: function data() {return { devInfo: [{ des: "设备总量"
     } },
 
   onLoad: function onLoad() {var _this2 = this;
-    // console.log("clicklimit-", typeof throttle.clickLimit(()=>{}))
     /* 获取用户基本信息 */
     this.$reqGet({
       url: "".concat(this.$baseUrl, "/user/getUserInfo"),
       rsv: function rsv(data) {
-        console.log(data);
         _this2.userInfo.name = data.name;
         _this2.userInfo.avatar = data.avatar;
         _this2.$store.commit("changeVal", { k: "_username", v: data.name });
@@ -257,7 +290,6 @@ var _default = { data: function data() {return { devInfo: [{ des: "设备总量"
     this.$reqGet({
       url: "".concat(this.$baseUrl, "/dev/getDevList"),
       rsv: function rsv(data) {
-        // this.$store.commit("changeVal", {k:"_devList", v:data.data})
         _this2.devList = data.data;
         _this2.devInfo[0].count = _this2.devList.length;
         _this2.devInfo[1].count = _this2.olCount();

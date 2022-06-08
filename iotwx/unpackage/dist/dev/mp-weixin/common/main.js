@@ -9,7 +9,7 @@
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni, createApp) {__webpack_require__(/*! uni-pages */ 5);var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 6));
 var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 12));
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 4));
 
 
 
@@ -145,13 +145,13 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   onLaunch: function onLaunch() {
-    console.log('App Launch');
+    // console.log('App Launch')
   },
   onShow: function onShow() {
-    console.log('App Show');
+    // console.log('App Show')
   },
   onHide: function onHide() {
-    console.log('App Hide');
+    // console.log('App Hide')
   } };exports.default = _default;
 
 /***/ }),

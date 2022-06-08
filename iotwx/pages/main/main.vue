@@ -1,8 +1,7 @@
 <template>
 	<view>
 		<view class="profile flex-center">
-			<!-- <view style="background-image: url('/static/img/user/av1.jpg');"></view> -->
-			<view :style="{backgroundImage: `url(/static/img/user/av${userInfo.avatar}.jpg)`}"></view>
+			<view @click="modalInfo.isShow=true" :style="{backgroundImage: `url(/static/img/user/av${userInfo.avatar}.jpg)`}"></view>
 			<text>{{userInfo.name}}</text>
 		</view>
 		<view class="info">
@@ -19,12 +18,16 @@
 			</ul>
 		</view>
 		<cf-tabbar :actTabIdx="0"></cf-tabbar>
+		<u-modal :show="modalInfo.isShow"  :content="modalInfo.content" showCancelButton 
+		:cancelColor="styleVar.main_color" confirmColor="#606266" buttonReverse
+		@confirm="logOut" @cancel="modalInfo.isShow=false"></u-modal>
 	</view>
 </template>
 
 <script>
 	//store _devList还未修改
 	import throttle from "../../utils/throttle.js"
+	import styleVar from "@/static/css/base.scss"
 	
 	export default {
 		data() {
@@ -42,19 +45,39 @@
 				},
 				devList: [],
 				isShowCode: false,
+				modalInfo: {
+					isShow: false,
+					content: "是否需要切换当前用户?"
+				},
+				styleVar
 			}
 		},
 		computed: {
 		},
 		methods: {
+			/* 退出登录 */
+			logOut () {
+				this.$store.commit("changeVal", {k:"token", v:""})
+				setTimeout(()=>{
+					uni.navigateTo({
+						url: "/pages/index/index"
+					})
+				},200)
+			},
 			thLiClick: throttle.clickLimit(function(){
 				this.resetCode()
 			},{limit:500}),
+			/* 连接/重置密钥点击逻辑 */
 			liClick (i) {
 				switch (i) {
 					case 2:
 						this.isShowCode = !this.isShowCode
 						this.devInfo[i].des = this.isShowCode ? this.userInfo.code : "连接密钥"
+						if (this.isShowCode) {
+							uni.setClipboardData({
+								data: this.userInfo.code
+							});
+						}
 						break
 					case 3:
 						this.thLiClick()
@@ -87,12 +110,10 @@
 			}
 		},
 		onLoad () {
-			// console.log("clicklimit-", typeof throttle.clickLimit(()=>{}))
 			/* 获取用户基本信息 */
 			this.$reqGet({
 				url:`${this.$baseUrl}/user/getUserInfo`,
 				rsv: (data) => {
-					console.log(data)
 					this.userInfo.name = data.name
 					this.userInfo.avatar = data.avatar
 					this.$store.commit("changeVal", {k:"_username", v:data.name})
@@ -102,7 +123,6 @@
 			this.$reqGet({
 				url:`${this.$baseUrl}/dev/getDevList`,
 				rsv: (data) => {
-					// this.$store.commit("changeVal", {k:"_devList", v:data.data})
 					this.devList = data.data
 					this.devInfo[0].count = this.devList.length
 					this.devInfo[1].count = this.olCount()

@@ -154,7 +154,7 @@ page {
 }
 .subMsg .msg-box {
   padding-left: 15rpx;
-  font: 45rpx/70rpx "微软雅黑", "Micosoft Yahei", "Micosoft YaHei", "sans-serif";
+  font: 35rpx/70rpx "微软雅黑", "Micosoft Yahei", "Micosoft YaHei", "sans-serif";
   width: 100%;
   height: 70rpx;
   border: 1px solid #c8c8c8;
@@ -164,9 +164,12 @@ page {
 .subD {
   width: 100%;
 }
+.subD:last-of-type {
+  margin-bottom: 150rpx;
+}
 .subD .subData {
   width: 100%;
-  height: 530rpx;
+  height: 510rpx;
   padding: 20rpx;
   box-shadow: 1px 1px 1px 1px gainsboro;
   border-radius: 5rpx;
