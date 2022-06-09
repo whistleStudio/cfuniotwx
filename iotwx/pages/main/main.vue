@@ -1,7 +1,8 @@
 <template>
 	<view>
 		<view class="profile flex-center">
-			<view @click="modalInfo.isShow=true" :style="{backgroundImage: `url(/static/img/user/av${userInfo.avatar}.jpg)`}"></view>
+			<!-- :style="{backgroundImage: `url(/static/img/user/av${userInfo.avatar}.jpg)` -->
+			<view @click="modalInfo.isShow=true" :style="{backgroundImage: `url(https://cfunweb.oss-cn-hangzhou.aliyuncs.com/img/cfiot/av${userInfo.avatar}.jpg)`}"></view>
 			<text>{{userInfo.name}}</text>
 		</view>
 		<view class="info">
@@ -152,7 +153,7 @@
 			box-sizing: border-box;
 			border: 1px solid gainsboro;
 			border-radius: 50%;
-			background: url("@/static/img/user/av0.jpg") center/cover no-repeat;
+			background: center/cover no-repeat;
 		}
 		text {
 			margin-top: 20rpx;

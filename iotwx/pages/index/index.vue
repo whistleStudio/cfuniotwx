@@ -15,6 +15,8 @@
 			</view>
 			<button :disabled="!logOk" @click="reqLog"
 			class="mgt-50" hover-class="btn-hover">登录</button>
+			<image src="https://cfunweb.oss-cn-hangzhou.aliyuncs.com/img/cfiot/logincartoon.png" 
+			mode="widthFix" class="cartoon"></image>
 		</view>
 	</view>
 </template>
@@ -80,6 +82,7 @@
 	.content {
 		height: 100vh;
 		.logbox {
+			position: relative;
 			width: 600rpx;
 			height: 750rpx;
 			border: 1px solid $mainColorAA;
@@ -112,6 +115,13 @@
 				font: 30rpx/80rpx $fontF;
 				background-color: $mainColorA;
 				color: white;
+			}
+			.cartoon {
+				position: absolute;
+				width: 360rpx;
+				// width: 100rpx;
+				left: 20%;
+				top: -28%;
 			}
 		}
 	}

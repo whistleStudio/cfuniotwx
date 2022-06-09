@@ -9,7 +9,7 @@
 					<radio-group @change="radioChange">
 						<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in devList" :key="item.value">
 							<view>
-								<radio :value="item.value" :checked="index == $store.state._curIdx" />
+								<radio :value="item.value" :checked="index == currentIdx" />
 							</view>
 							<view>{{item.name}}</view>
 						</label>
@@ -32,6 +32,9 @@
 		},
 		props: {
 			isShowPop: Boolean
+		},
+		computed: {
+			currentIdx () {return this.$store.state._curIdx}
 		},
 		methods: {
 			closePop () {
