@@ -50,6 +50,7 @@ page {
   height: 100vh;
 }
 .content .logbox {
+  position: relative;
   width: 600rpx;
   height: 750rpx;
   border: 1px solid rgba(0, 161, 233, 0.3);
@@ -84,6 +85,12 @@ page {
   font: 30rpx/80rpx "微软雅黑", "Micosoft Yahei", "Micosoft YaHei", "sans-serif";
   background-color: rgba(0, 161, 233, 0.6);
   color: white;
+}
+.content .logbox .cartoon {
+  position: absolute;
+  width: 360rpx;
+  left: 20%;
+  top: -28%;
 }
 .btn-hover {
   background-color: #00A1E9 !important;

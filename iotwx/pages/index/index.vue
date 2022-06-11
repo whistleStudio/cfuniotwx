@@ -72,8 +72,21 @@
 						this.$store.commit("resetData")
 					}
 				})
+			},
+			onShareAppMessage () {
+				return {
+					title: "创趣物联网小程序",
+					path: '/pages/index/index'
+				}
+			},
+			onShareTimeline () {
+				return {
+					title: "创趣物联网小程序",
+					path: '/pages/index/index'
+				}
 			}
-		}
+		
+		},
 	}
 </script>
 

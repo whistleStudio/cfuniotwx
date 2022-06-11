@@ -16,7 +16,6 @@
     "uglifyFileName": false,
     "uploadWithSourceMap": true,
     "enhance": true,
-    "useMultiFrameRuntime": true,
     "showShadowRootInWxmlPanel": true,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -30,11 +29,10 @@
       "outputPath": ""
     },
     "disableUseStrict": false,
-    "useCompilerPlugins": false,
-    "minifyWXML": true
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.24.4",
+  "libVersion": "2.24.5",
   "appid": "wx28a0fcbc694304dd",
   "projectname": "iotwx",
   "condition": {},
